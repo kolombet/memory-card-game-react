@@ -5,6 +5,7 @@ import Game from "./Game";
 import gameModel from "./GameModel";
 import styled, {css} from "styled-components";
 import backgroundImage from "./resources/background.png";
+import Score from "./Score";
 
 const Background = styled.div`
     position:relative;
@@ -43,6 +44,7 @@ class App extends Component {
       }
 
       {/*<Popup/>*/}
+      <Score/>
     </Background>
     );
   }

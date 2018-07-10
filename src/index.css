@@ -1,11 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Proxima Nova, sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .card__container {
-
 
   /*width:100px;*/
   /*height: 100px;*/
@@ -42,7 +45,6 @@ body {
   transform-origin: center;
   transition: transform 1s;
 }
-
 
 .card.is-flipped {
   transform: rotateY(-180deg);

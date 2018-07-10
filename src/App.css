@@ -1,17 +1,76 @@
 @font-face {
+  font-family: 'PFRegal';
+  font-style: normal;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-RegularB-cda547.woff) format('woff')
+}
+
+@font-face {
+  font-family: 'PFRegal';
+  font-style: italic;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-RegularBItalic-a5496b.woff) format('woff')
+}
+
+@font-face {
+  font-family: 'PFRegal';
+  font-weight: bold;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-Bold-1a46fa.woff) format('woff')
+}
+
+@font-face {
+  font-family: 'PFRegal';
+  font-weight: bold;
+  font-style: italic;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-BoldItalic-d90874.woff) format('woff')
+}
+
+@font-face {
+  font-family: 'PFRegal';
+  font-weight: 500;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-Medium-7946ec.woff) format('woff')
+}
+
+@font-face {
+  font-family: 'PFRegal';
+  font-weight: 500;
+  font-style: italic;
+  src: url(https://meduza.io/assets/fonts/PFRegalTextPro-MediumItalic-58633b.woff) format('woff')
+}
+
+/*@font-face {*/
+  /*font-family: "Proxima Nova";*/
+  /*font-weight: 400;*/
+  /*font-style: normal;*/
+  /*src: url(https://meduza.io/assets/fonts/ProximaNova-Regular-4238ca.woff) format("woff")*/
+/*}*/
+
+/*@font-face {*/
+  /*font-family: "Proxima Nova";*/
+  /*font-weight: 600;*/
+  /*font-style: normal;*/
+  /*src: url(https://meduza.io/assets/fonts/ProximaNova-Semibold-125692.woff) format("woff")*/
+/*}*/
+
+/*@font-face {*/
+  /*font-family: "Proxima Nova";*/
+  /*font-weight: 700;*/
+  /*font-style: normal;*/
+  /*src: url(https://meduza.io/assets/fonts/ProximaNova-Bold-86fdfa.woff) format("woff")*/
+/*}*/
+
+
+@font-face {
+
   font-family: 'Proxima Nova';
   font-style: normal;
   font-weight: 400;
-  src:
-      url(./resources/fonts/ProximaNova-Regular.woff) format('woff');
+  src: url(./resources/fonts/ProximaNova-Regular.woff) format('woff');
 }
 
 @font-face {
   font-family: 'Proxima Nova';
   font-style: normal;
   font-weight: 700;
-  src:
-      url(./resources/fonts/ProximaNova-Bold.woff) format('woff');
+  src: url(./resources/fonts/ProximaNova-Bold.woff) format('woff');
 }
 
 .App {

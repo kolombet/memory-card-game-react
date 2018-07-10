@@ -134,7 +134,5 @@ export default class Popup extends Component {
       </Animation>
     </Wrapper>
     )
-
-
   }
 }
