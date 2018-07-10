@@ -42,18 +42,15 @@ const Window = styled.div`
   border: 2px solid #000;
   border-radius: 4px;
   background-image: url(${background});
-  
-  
 `;
 
-const Photo = styled.div`
-  border-radius: 4px;
-  border: 2px solid #000;
-  height: 216px;
-  margin-bottom: 15px;
-  background: #fff url(${guber}) no-repeat 50%;
-  background-size: 104%;
-`
+const Photo = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 230px;
+`;
 
 const label = css`
   font-family: Proxima Nova,sans-serif;
@@ -102,7 +99,37 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const PhotoBorder = styled.div`
+  border-radius: 4px;
+  border: 2px solid #000;
+  height: 216px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  position:relative;
+`;
+
 export default class Popup extends Component {
+
+  constructor(props) {
+    super(props);
+
+    const id = props.guberId || 4;
+    console.log("id " + id);
+    let guber = data[id];
+
+    if (!guber) {
+      console.log('no guber with such id');
+      guber = data[id];
+    }
+
+    const guberImgId = data[id].id;
+    const guberImgPath = `./data/large/l_${guberImgId}@2x.jpg`;
+    console.log("path " + guberImgPath);
+    this.state = {
+      photo: guberImgPath
+    }
+  }
+
   onNextClick() {
     gameModel.detailsNext();
   }
@@ -121,11 +148,14 @@ export default class Popup extends Component {
     }
     const age = this.calculateYear(guber.birthday);
     const locale = pluralize(age, 'год', 'года', 'лет');
+
     return (
     <Wrapper>
       <Animation>
         <Window>
-          <Photo/>
+          <PhotoBorder>
+            <Photo src={this.state.photo}/>
+          </PhotoBorder>
           <Title>{`${guber.name}, ${age} ${locale}`}</Title>
           <Subtitle>{guber.subtitle}</Subtitle>
           <Description>{guber.description}</Description>

@@ -25,12 +25,14 @@ class App extends Component {
       console.log("game model state change " + gameModel.isShowingDetails())
       this.setState({
         isShowingDetails: gameModel.isShowingDetails(),
+        isShowingScore: gameModel.isShowingScore(),
         guberId: gameModel.detailsId()
       })
     });
 
     this.state = {
-      isShowingDetails: gameModel.isShowingDetails()
+      isShowingDetails: gameModel.isShowingDetails(),
+      isShowingScore: gameModel.isShowingScore()
     }
   }
 
@@ -42,9 +44,11 @@ class App extends Component {
       {this.state.isShowingDetails &&
         <Popup guberId={this.state.guberId}/>
       }
+      {this.state.isShowingScore &&
+        <Score/>
+      }
 
       {/*<Popup/>*/}
-      <Score/>
     </Background>
     );
   }

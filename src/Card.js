@@ -90,8 +90,8 @@ class Card extends Component {
   render() {
     const guberId = this.props.cardPair;
     const guberImgId = data[guberId].id;
-    const guberImgPath = `./data/small/${guberImgId}@2x.jpg`;
-    console.log("imag " + guberImgPath)
+    const guberImgPath = `./data/small/s_${guberImgId}@2x.jpg`;
+    // console.log("imag " + guberImgPath)
 
     const isGuessed = this.props.isGuessed ? 'is-guessed' : '';
     const isFlipped = this.props.isFlipped ? 'is-flipped' : '';

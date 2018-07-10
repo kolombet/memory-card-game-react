@@ -5,6 +5,7 @@ const HIDE_ANIMATION = "HIDE_ANIMATION";
 const WAITING_FOR_UNFLIP = "WAITING_FOR_UNFLIP";
 const WAITING_FOR_PLAYER_INPUT = "WAITING_FOR_PLAYER_INPUT";
 const SHOWING_GUBER_DETAILS = "SHOWING_GUBER_DETAILS";
+const SHOWING_SCORE = "SHOWING_SCORE";
 
 class GameModel {
 
@@ -12,6 +13,7 @@ class GameModel {
     this.onModelChanged = new Signal();
     this.state = WAITING_FOR_PLAYER_INPUT;
     this._moveCount = 0;
+    this._pairCount = 0;
 
     const cardsCount = 16;
     const cards = [];
@@ -55,17 +57,28 @@ class GameModel {
       case WAITING_FOR_UNFLIP:
         this.waitingForUnflip();
         break;
+      case HIDE_ANIMATION:
+        this.setState(SHOWING_GUBER_DETAILS);
+        break;
       case SHOWING_GUBER_DETAILS:
         break;
     }
   }
 
   detailsNext() {
-    this.setState(WAITING_FOR_PLAYER_INPUT);
+    console.log("pair count " + this._pairCount);
+    if (this._pairCount === 8)
+      this.setState(SHOWING_SCORE);
+    else
+      this.setState(WAITING_FOR_PLAYER_INPUT);
   }
 
   isShowingDetails() {
     return this.state === SHOWING_GUBER_DETAILS;
+  }
+
+  isShowingScore() {
+    return this.state === SHOWING_SCORE;
   }
 
   detailsId() {
@@ -86,7 +99,8 @@ class GameModel {
 
     // console.log("waiting for hide");
     // this.state = WAITING_FOR_PLAYER_INPUT;
-    this.setState(SHOWING_GUBER_DETAILS);
+    this.setState(HIDE_ANIMATION, 2);
+    // this.setState(SHOWING_GUBER_DETAILS);
   }
 
   getMoveCount() {
@@ -109,6 +123,7 @@ class GameModel {
       first.isGuessed = true;
       second.isGuessed = true;
       this.flipped = [];
+      this._pairCount++;
 
       this.setState(WAITING_FOR_HIDE, 2000);
     } else {
@@ -124,8 +139,10 @@ class GameModel {
   }
 
   tryToFlip(id) {
-    if (this.state !== WAITING_FOR_PLAYER_INPUT)
+    if (this.state !== WAITING_FOR_PLAYER_INPUT) {
+      console.log("flipping in state " + this.state);
       return;
+    }
 
     this._moveCount++;
 

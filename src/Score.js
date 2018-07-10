@@ -34,7 +34,6 @@ const Column = styled.div`
 const Caption = styled.h2`
     width:100%;
     font-family: Helvetica;
-    margin-top: 60px;
     margin-bottom: 10px;
     font-size: 17px;
     opacity: .8;
@@ -71,16 +70,20 @@ const MeduzaIcon = styled.div`
   background-size:cover;
   width: 85px;
   height: 18px;
-  margin-top:20px;
 `;
 
 const IconContainer = styled.div`
+  margin-top:20px;
+  margin-bottom:60px;
   display:flex;
   width: 100%;
 `;
 
 export default class Score extends Component {
   render() {
+    const movesCount = gameModel.getMoveCount();
+    const plural = pluralize(movesCount, 'раз', 'раза', 'раз');
+    const locale = `${movesCount} ${plural}`;
     return (
     <Wrapper>
       <Background>
@@ -91,7 +94,7 @@ export default class Score extends Component {
 
           <Caption>Найди двух одинаковых губернаторов: игра «Медузы»</Caption>
           <Card>
-            <Title>Я могу отличить губернаторов<br/> c XXX раза</Title>
+            <Title>Я могу отличить губернаторов<br/> c {locale}</Title>
           </Card>
         </Column>
       </Background>
