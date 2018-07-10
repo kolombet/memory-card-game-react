@@ -78,33 +78,5 @@ body {
   perspective: 1000px;
   width: 98%;
   height: 98%;
-  /*border: 1px solid black;*/
-  /*box-sizing: border-box;*/
 }
 
-/*.aspectRatioSizer {*/
-
-/*}*/
-
-/*.aspectRatioSizer > * {*/
-  /*grid-area: 1 / 1 / 2 / 2;*/
-/*}*/
-
-.popup__container {
-  max-width: 296px;
-  min-width: 296px;
-  padding: 11px 11px 25px;
-}
-
-body {
-  /*height: 100vh;*/
-  /*width: 140vw;*/
-}
-
-/*.game {*/
-  /*width: 280px;*/
-  /*height: 360px;*/
-  /*background-color: aqua;*/
-  /*display: flex;*/
-  /*flex-flow: row wrap;*/
-/*}*/

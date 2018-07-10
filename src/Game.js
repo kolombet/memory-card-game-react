@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 `;
 
 const GameView = styled.div`
@@ -27,9 +28,11 @@ const MoveLabel = styled.span`
   color: #000;
   margin-bottom: 9px;
   text-transform: uppercase;
+  padding-top: 1rem;
 `;
 
 const AspectRatio = styled.div`
+  margin: 1rem;
   width: 296px;
   height: 376px;
 
@@ -79,9 +82,9 @@ export default class Game extends Component {
       return <p> loading...</p>
 
     let move = `ходов: ${this.state.moves}`;
-    return <Container>
+    return (
+    <Container>
       <MoveLabel>{move}</MoveLabel>
-
       <AspectRatio>
         <GameView>
           {this.state.cards.map((card, i) => {
@@ -94,5 +97,6 @@ export default class Game extends Component {
         </GameView>
       </AspectRatio>
     </Container>
+    )
   }
 }

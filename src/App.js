@@ -7,6 +7,7 @@ import styled, {css} from "styled-components";
 import backgroundImage from "./resources/background.png";
 
 const Background = styled.div`
+    position:relative;
     border-radius: 2px;
     background: url(${backgroundImage});
     background-size: 50px;
@@ -33,10 +34,14 @@ class App extends Component {
   }
 
   render() {
-    console.log("render " + this.state.isShowingDetails)
+    console.log("render " + this.state.isShowingDetails);
     return (
     <Background>
-      {this.state.isShowingDetails ? <Popup guberId={this.state.guberId}/> : <Game/>}
+      <Game/>
+      {this.state.isShowingDetails &&
+        <Popup guberId={this.state.guberId}/>
+      }
+
       {/*<Popup/>*/}
     </Background>
     );
